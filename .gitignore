@@ -1,0 +1,6 @@
+# API keys — never commit these
+config.js
+node_modules/
+.env
+.env.*
+!.env.example

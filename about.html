@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>About - MindMate AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .about-hero {
+      background: linear-gradient(135deg, var(--c-accent-soft) 0%, rgba(125,213,200,0.08) 100%);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-lg);
+      padding: 36px 32px;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-hero::before {
+      content: '🧠';
+      position: absolute;
+      right: 24px;
+      top: 20px;
+      font-size: 52px;
+      opacity: 0.18;
+      transform: rotate(-10deg);
+    }
+    .about-hero h1 {
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      background: linear-gradient(130deg, var(--c-accent), var(--c-mint));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 10px;
+    }
+    .about-hero p {
+      font-size: 15px;
+      color: var(--c-muted);
+      line-height: 1.65;
+      max-width: 540px;
+    }
+    .about-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--c-accent-soft);
+      border: 1px solid var(--c-border);
+      border-radius: 99px;
+      padding: 4px 12px;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--c-accent);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 600px) {
+      .mission-grid { grid-template-columns: 1fr; }
+    }
+    .mission-card {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-md);
+      padding: 20px;
+      transition: all 0.22s var(--ease-out);
+    }
+    .mission-card:hover {
+      border-color: var(--c-border-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .mission-icon {
+      font-size: 26px;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .mission-card h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--c-text);
+      margin-bottom: 6px;
+    }
+    .mission-card p {
+      font-size: 13px;
+      color: var(--c-muted);
+      line-height: 1.6;
+    }
+    .tech-section {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-md);
+      padding: 22px 24px;
+      margin-bottom: 20px;
+    }
+    .tech-section h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--c-text);
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+    .tech-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tech-pill {
+      background: var(--c-accent-soft);
+      border: 1px solid var(--c-border);
+      border-radius: 8px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--c-accent);
+      transition: all 0.2s;
+    }
+    .tech-pill:hover {
+      background: var(--c-accent);
+      color: #fff;
+      border-color: var(--c-accent);
+    }
+    .disclaimer-box {
+      background: rgba(240,160,184,0.08);
+      border: 1px solid rgba(240,160,184,0.25);
+      border-radius: var(--r-md);
+      padding: 16px 20px;
+      font-size: 13px;
+      color: var(--c-muted);
+      line-height: 1.6;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .disclaimer-box .di { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+    .version-line {
+      font-size: 12px;
+      color: var(--c-muted);
+      text-align: center;
+      padding-top: 10px;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="sidebarOverlay" class="sidebar-overlay" onclick="closeSidebar()" aria-hidden="true"></div>
+
+  <header class="mobile-header" aria-label="Mobile navigation">
+    <button class="hamburger" onclick="openSidebar()" aria-label="Open menu" aria-expanded="false" id="hamburgerBtn">
+      <span></span><span></span><span></span>
+    </button>
+    <span class="mobile-logo">MindMate AI</span>
+  </header>
+
+  <div class="app-container">
+
+    <aside class="sidebar" id="sidebar" role="navigation" aria-label="Main sidebar">
+      <h2 class="logo">MindMate AI</h2>
+      <div class="sidebar-profile">
+        <img id="sidebarAvatar" class="sidebar-avatar" alt="Your avatar">
+        <div class="sidebar-user">
+          <span id="sidebarName"></span>
+        </div>
+      </div>
+      <nav class="nav-main" aria-label="Main navigation">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="index.html">Chat</a>
+        <a href="journal.html">Journal</a>
+        <a href="calm.html">Calm Space</a>
+      </nav>
+      <nav class="nav-secondary" aria-label="Account navigation">
+        <a href="profile.html">Profile</a>
+        <a href="settings.html">Settings</a>
+      </nav>
+      <nav class="nav-info" aria-label="Info pages">
+        <a href="about.html" class="active">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </nav>
+      <div class="sidebar-footer">
+        <button id="audioToggle" class="sidebar-audio-btn" aria-label="Toggle calm audio">🎵 Calm Audio</button>
+        <button onclick="logout()" class="logout-btn" aria-label="Log out">Logout</button>
+      </div>
+    </aside>
+
+    <main class="main-area" style="overflow-y:auto">
+      <div class="page-wrapper">
+
+        <div class="about-hero">
+          <div class="about-badge">✦ Student Wellness Tool</div>
+          <h1>About MindMate AI</h1>
+          <p>MindMate AI is an AI-powered mental wellness companion built specifically for students — helping you navigate stress, anxiety, academic pressure, and everyday emotional challenges with compassionate, judgment-free support.</p>
+        </div>
+
+        <div class="mission-grid">
+          <div class="mission-card">
+            <span class="mission-icon">💬</span>
+            <h4>Supportive Conversations</h4>
+            <p>Chat with an AI trained to listen and respond with empathy — any time, without waiting for an appointment.</p>
+          </div>
+          <div class="mission-card">
+            <span class="mission-icon">📓</span>
+            <h4>Guided Journaling</h4>
+            <p>Reflect on your day, track your moods, and gain insights into your emotional patterns over time.</p>
+          </div>
+          <div class="mission-card">
+            <span class="mission-icon">🌿</span>
+            <h4>Calm Space</h4>
+            <p>Wind down with ambient sounds and breathing exercises designed to reduce tension and restore focus.</p>
+          </div>
+          <div class="mission-card">
+            <span class="mission-icon">🔒</span>
+            <h4>Private & Secure</h4>
+            <p>Your conversations and journal entries stay in your browser. Nothing is sent to external servers.</p>
+          </div>
+        </div>
+
+        <div class="tech-section">
+          <h3>🛠 Built With</h3>
+          <div class="tech-pills">
+            <span class="tech-pill">HTML5</span>
+            <span class="tech-pill">CSS3</span>
+            <span class="tech-pill">Vanilla JavaScript</span>
+            <span class="tech-pill">Firebase Auth</span>
+            <span class="tech-pill">Claude AI (Anthropic)</span>
+            <span class="tech-pill">Local Storage</span>
+            <span class="tech-pill">Web Audio API</span>
+          </div>
+        </div>
+
+        <div class="disclaimer-box">
+          <span class="di">⚠️</span>
+          <span>MindMate AI is a <strong>supportive tool</strong>, not a substitute for professional mental health care. If you're experiencing a crisis or severe distress, please reach out to a licensed counsellor, therapist, or a mental health helpline in your region.</span>
+        </div>
+
+        <p class="version-line">MindMate AI · v2.0 · Built for student wellbeing</p>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="sidebar.js"></script>
+  <script src="toast.js"></script>
+  <script src="audio.js"></script>
+  <script src="effects.js"></script>
+</body>
+</html>
